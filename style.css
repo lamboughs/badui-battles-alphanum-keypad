@@ -50,11 +50,31 @@ main {
   width: 320px;
 }
 .input-preview {
-  height: 32px;
-  width: 100px;
-  background-color: #444;
+  height: 40px;
+  width: 200px;
+  background-color: #222;
   border-radius: 4px;
+  align-items: center;
+  justify-content: center;
+  gap: .2em;
 }
+.preview-key {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 2px;
+  background-color: #444;
+  width: 1.6em;
+  height: 1.8em;
+  transform: scale(1);
+  transition: scale 2s ease;
+}
+.preview-key.active {
+  background-color: #555;
+  transform: scale(1.1);
+  transition: scale 3s ease;
+}
+
 .keypad {
   flex-wrap: wrap;
   padding: 1em;

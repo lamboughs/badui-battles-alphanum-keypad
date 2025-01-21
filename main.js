@@ -1,15 +1,23 @@
 const $ = (q, multiple = false) =>
   multiple ? document.querySelectorAll(q) : document.querySelector(q);
+let activeKeys=[];
+let activeKeyIndex = 0;
+let activeInput = null;
+let keyTimeout;
+
 
 window.onload = () => {
   console.log("ready...");
   
-  renderKeys();
+  const usernameInput = $("#username-in");
+  const passwordInput = $("#password-in");
+
+  activeInput = usernameInput;
   
+  renderKeys();
 }
 
 function renderKeys() {
-  const keyTemplate = $("#key-tpl");
   const keypad = $(".keypad");
   
   keys.forEach(key => {
@@ -23,9 +31,38 @@ function renderKeys() {
 
 const getKeyButtonHTML = (keyData) => {
   const keyDataString = Object.values(keyData).join("");
+ 
   return `<button class="key-btn" onclick="handleKeyPress('${keyDataString}')"></button>`;
 }
 
-function handleKeyPress(keyData) {
-  console.log(keyData);
+const handleKeyPress = (keyData) => {
+  
+  if(activeKeys.join("") === keyData) {
+    activeKeyIndex = ++activeKeyIndex % activeKeys.length;
+    changeActiveKey();
+  } else {
+    activeKeyIndex = 0;
+    activeKeys = keyData.split("");
+    $(".input-preview").innerHTML = getKeysPreviewHTML(activeKeys);
+  }
+  
+  clearTimeout(keyTimeout);
+  keyTimeout = setTimeout(selectActiveKey, 500);
+}
+
+const changeActiveKey = () => {
+  $(".preview-key.active")?.classList.remove("active");
+  $(".preview-key", true)[activeKeyIndex].classList.add("active");
+}
+
+const getKeysPreviewHTML = (keys) => {
+  return keys.map((key, i) => `<div class="preview-key ${i === 0? 'active':''}">${key}</div>`).join("");
+}
+
+const selectActiveKey = () => {
+  if(activeInput != null) {
+    activeInput.value += activeKeys[activeKeyIndex];
+  }
+
+  activeKeyIndex = 0;
 }
