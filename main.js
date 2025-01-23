@@ -17,13 +17,23 @@ window.onload = () => {
   activeInput = usernameInput;
 
   $("#backspace-btn").onclick = () => {
-    activeInput.value = activeInput.value.substr(0, activeInput.value.length - 1);
-    activeKeyIndex = 0;
+    if(activeInput !== null) {
+      activeInput.value = activeInput.value.substr(0, activeInput.value.length - 1);
+      activeKeyIndex = 0;
+    }
+  }
+  $("#reset-btn").onclick = () => {
+    activeInput = usernameInput;
+    usernameInput.value = "";
+    usernameInput.classList.add("active");
+    passwordInput.value = "";
+    passwordInput.classList.remove("active");
+    $(".login-btn").disabled = true;
   }
   $("#capslock-btn").onclick = () => {
     capslockInput.checked = !capslockInput.checked;
     renderKeys(keypad, capslockInput.checked);
-    
+
     if(capslockInput.checked) {
       capslockHint.classList.remove("hidden");
     } else {
@@ -35,6 +45,12 @@ window.onload = () => {
       activeInput = passwordInput;
       usernameInput.classList.remove("active");
       passwordInput.classList.add("active");
+      return;
+    }
+    if(areFieldsLengthsValid([usernameInput, passwordInput], 4)) {
+      activeInput = null;
+      passwordInput.classList.remove("active");
+      $(".login-btn").disabled = false;
     }
   }
   
@@ -99,10 +115,23 @@ const getKeysPreviewHTML = (keys) => {
 }
 
 const selectActiveKey = () => {
-  if(activeInput != null) {
+  if(activeInput !== null) {
     activeInput.value += activeKeys[activeKeyIndex];
   }
   
   activeKeyIndex = 0;
   activeKeys = [];
+}
+
+const areFieldsLengthsValid = (fields, validLength) => {
+  result = true;
+
+  fields.forEach(field => {
+    if(field.value.length < validLength) {
+      result = false;
+      return;
+    }
+  });
+
+  return result;
 }

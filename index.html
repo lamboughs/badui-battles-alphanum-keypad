@@ -18,10 +18,10 @@
   <main class="flex flex-column">
     <div class="form-group flex flex-column">
       <div class="credintials flex flex-column">
-        <input type="text" placeholder="Username" class="active" id="username-in">
-        <input type="password" placeholder="Password" id="password-in">
+        <input type="text" placeholder="Username" class="active" id="username-in" readonly>
+        <input type="password" placeholder="Password" id="password-in" readonly>
       </div> 
-      <button type="button" class="login-btn">Login</button>
+      <button type="button" class="login-btn" disabled>Login</button>
       <div class="capslock-hint flex hidden">Casplock is on</div>
     </div>
     <div class="input-area flex">
@@ -34,7 +34,7 @@
         </div>
         <div class="key flex flex-column">
           <div class="numeric">Reset</div>
-          <button type="button" class="key-btn" id="backspace-btn"></button>
+          <button type="button" class="key-btn" id="reset-btn"></button>
         </div>
         <div class="key flex flex-column">
           <div class="numeric">a <span class="fa fa-arrows-h"></span> A</div>
