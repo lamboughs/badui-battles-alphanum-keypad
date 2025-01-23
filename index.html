@@ -5,6 +5,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>badUIbattles | Alphanumeric Keypad Login</title>
+  <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
   <link rel="stylesheet" href="style.css">
   <script src="constants.js" defer></script>
   <script src="main.js" defer></script>
@@ -14,14 +18,33 @@
   <main class="flex flex-column">
     <div class="form-group flex flex-column">
       <div class="credintials flex flex-column">
-        <input type="text" placeholder="Username" id="username-in">
+        <input type="text" placeholder="Username" class="active" id="username-in">
         <input type="password" placeholder="Password" id="password-in">
       </div> 
       <button type="button" class="login-btn">Login</button>
+      <div class="capslock-hint flex hidden">Casplock is on</div>
     </div>
     <div class="input-area flex">
       <div class="input-preview flex"></div>
-      <div class="keypad flex">
+      <div class="keypad flex"></div>
+      <div class="controls flex flex-column">
+        <div class="key flex flex-column">
+          <div class="numeric"><span class="fa fa-arrow-left"></span></div>
+          <button type="button" class="key-btn" id="backspace-btn"></button>
+        </div>
+        <div class="key flex flex-column">
+          <div class="numeric">Reset</div>
+          <button type="button" class="key-btn" id="backspace-btn"></button>
+        </div>
+        <div class="key flex flex-column">
+          <div class="numeric">a <span class="fa fa-arrows-h"></span> A</div>
+          <button type="button" class="key-btn" id="capslock-btn"></button>
+          <input type="checkbox" class="hidden" id="capslock-in">
+        </div>
+        <div class="key flex flex-column">
+          <div class="numeric">Done</div>
+          <button type="button" class="key-btn" id="done-btn"></button>
+        </div>
       </div>
     </div>
   </main>

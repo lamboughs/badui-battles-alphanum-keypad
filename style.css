@@ -19,6 +19,10 @@ body {
   flex-direction: column;
 }
 
+.hidden {
+  display: none;
+}
+
 main {
   height: 100%;
   align-items: center;
@@ -42,6 +46,13 @@ main {
   outline: none;
   background-color: #444;
   padding: 0 1em;
+}
+.form-group .active {
+  border: 1px solid #f35;
+}
+.capslock-hint {
+  justify-content: center;
+  color: #fff;
 }
 
 .input-area {
@@ -75,12 +86,19 @@ main {
   transition: scale 3s ease;
 }
 
+.keypad, .controls {
+  padding: 1em 0;
+  gap: 2px;
+
+}
 .keypad {
   flex-wrap: wrap;
-  padding: 1em;
-  gap: 2px;
-  width: 250px;
+  width: 200px;
   justify-content: center;
+  margin: 0 2px;
+}
+.controls {
+  width: 60px;
 }
 .key {
   justify-content: center;

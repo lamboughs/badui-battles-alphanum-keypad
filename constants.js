@@ -6,48 +6,48 @@ const keys = [
     },
     {
         "num": 2,
-        "alpha": "ABC",
+        "alpha": "abc",
         "symbols": ""
     },
     {
         "num": 3,
-        "alpha": "DEF",
+        "alpha": "def",
         "symbols": ""
     },
     {
         "num": 4,
-        "alpha": "GHI",
+        "alpha": "ghi",
         "symbols": ""
     },
     {
         "num": 5,
-        "alpha": "JKL",
+        "alpha": "jkl",
         "symbols": ""
     },
     {
         "num": 6,
-        "alpha": "MNO",
+        "alpha": "mno",
         "symbols": ""
     },
     {
         "num": 7,
-        "alpha": "PQRS",
+        "alpha": "pqrs",
         "symbols": ""
     },
     {
         "num": 8,
-        "alpha": "TUV",
+        "alpha": "tuv",
         "symbols": ""
     },
     {
         "num": 9,
-        "alpha": "WXYZ",
+        "alpha": "wxyz",
         "symbols": ""
     },
     {
         "num": null,
         "alpha": "*",
-        "symbols": "+-/"
+        "symbols": "+-/_"
     },
     {
         "num": 0,
@@ -57,6 +57,6 @@ const keys = [
     {
         "num": null,
         "alpha": "#",
-        "symbols": "!."
+        "symbols": "!.,"
     },
 ]
